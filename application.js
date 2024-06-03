@@ -294,32 +294,33 @@ const Application = () => {
 
   const Sidebar = () => {
     const { t } = useTranslation('add'); // Assurez-vous d'ajuster la clé de traduction si nécessaire
-    const [option1, setOption1] = useState('statistique'); // Initialise l'option1 à 'statistique'
+
 
     return (
-        <div className="sidebar2">
-            <div className='brand'>
-                <br /> <img src={logo1} alt="logo1" /> <br /><br /><br />
-            </div>
-
-            <div className={option1 === 'statistique' ? 'active' : ''} onClick={() => setOption1('statistique')}>
-                <FontAwesomeIcon icon={faChartLine} /> {t('Statistique des ventes')}
-            </div><br />
-
-            <div className={option1 === 'profile' ? 'active' : ''} onClick={() => setOption1('profile')}>
-                <FontAwesomeIcon icon={faUser} /> {t('Mon profile')}
-            </div><br />
-
-            <div className={option1 === 'videos' ? 'active' : ''} onClick={() => setOption1('videos')}>
-                <FontAwesomeIcon icon={faFilm} /> {t('Gestion videos audios')}
-            </div><br />
-
-            <div className={option1 === 'quiz' ? 'active' : ''} onClick={() => setOption1('quiz')}>
-                <FontAwesomeIcon icon={faQuestionCircle} /> {t('Gestion des quizzes')}
-            </div>
+      <div className="sidebar2">
+        <div className='brand'>
+          <br /> <img src={logo1} alt="logo1" /> <br /><br /><br />
         </div>
+
+        <div className={option === 'statistique' ? 'active' : ''} onClick={() => setOption1('statistique')}>
+        <FontAwesomeIcon icon={faChartLine} /> {t('Statistique des ventes')}
+  </div><br />
+
+        <div className={option === 'profile' ? 'active' : ''} onClick={() => setOption1('profile')}>
+        <FontAwesomeIcon icon={faUser} /> {t('Mon profile')}
+  </div><br />
+
+
+        <div className={option1 === 'videos' ? 'active' : ''} onClick={() => setOption1('videos')}>
+          <FontAwesomeIcon icon={faFilm} /> {t('Gestion videos audios')}
+        </div><br />
+
+        <div className={option1 === 'quiz' ? 'active' : ''} onClick={() => setOption1('quiz')}>
+          <FontAwesomeIcon icon={faQuestionCircle} /> {t('Gestion des quizzes')}
+        </div>
+      </div>
     );
-};
+  }
 
   const openQuizModal = () => {
     setShowQuizModal(true);
@@ -1003,7 +1004,6 @@ useEffect(() => {
 
         {option1 === 'statistique' && (
     <div>
-      <h1 className='taille'> <center>Statistiques des ventes</center> </h1> <br /><br />
         <StatistiquesVentesChart statistiquesVentes={statistiquesVentes} username={user?.name} />
     </div>
 )}
